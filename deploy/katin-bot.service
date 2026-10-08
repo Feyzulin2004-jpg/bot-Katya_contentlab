@@ -1,0 +1,17 @@
+[Unit]
+Description=Katin AI Content Kit Telegram bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/katin-bot
+ExecStart=/opt/katin-bot/.venv/bin/python /opt/katin-bot/run.py
+Restart=always
+RestartSec=5
+TimeoutStopSec=20
+User=root
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
